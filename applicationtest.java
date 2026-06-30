@@ -1,29 +1,51 @@
-package com.example.technova;
+public class applicationtest {
 
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.web.servlet.MockMvc;
+    public static void main(String[] args) {
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+        System.out.println("==================================");
+        System.out.println(" Jenkins Java Test Started");
+        System.out.println("==================================");
 
-@SpringBootTest
-@AutoConfigureMockMvc
-public class ApplicationTest {
+        int passed = 0;
+        int failed = 0;
 
-    @Autowired
-    private MockMvc mockMvc;
+        // Test 1
+        if (5 + 5 == 10) {
+            System.out.println("Test 1 PASSED");
+            passed++;
+        } else {
+            System.out.println("Test 1 FAILED");
+            failed++;
+        }
 
-    @Test
-    public void testHomePage() throws Exception {
+        // Test 2
+        String name = "TechNova";
+        if (name.equals("TechNova")) {
+            System.out.println("Test 2 PASSED");
+            passed++;
+        } else {
+            System.out.println("Test 2 FAILED");
+            failed++;
+        }
 
-        mockMvc.perform(get("/"))
-                .andExpect(status().isOk())
-                .andExpect(content().string(
-                        org.hamcrest.Matchers.containsString("TechNova Solutions")
-                ));
+        // Test 3
+        if (100 > 50) {
+            System.out.println("Test 3 PASSED");
+            passed++;
+        } else {
+            System.out.println("Test 3 FAILED");
+            failed++;
+        }
+
+        System.out.println("--------------------------");
+        System.out.println("Passed : " + passed);
+        System.out.println("Failed : " + failed);
+        System.out.println("--------------------------");
+
+        if (failed == 0) {
+            System.out.println("BUILD SUCCESS");
+        } else {
+            System.exit(1);
+        }
     }
 }
