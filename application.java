@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-public class Application {
+public class application {
 
     private static final String HTML = """
 <!DOCTYPE html>
